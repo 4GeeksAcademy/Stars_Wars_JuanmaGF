@@ -42,21 +42,83 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 			obtenerPersonas: () => {
-				fetch('https://www.swapi.tech/api/people/')
-					.then(response => {
-						if (!response.ok) {
-							throw Error('no se ha podido obtener las personas')
-						} return response.json()
-					})
-					.then(data => {
-						setStore({ personas: data})
-						console.log(data);
-					})
-					.catch(error => {
-						console.log(error);
-					});
+				const obtenerPersona = (numero) => {
+					const url = `https://www.swapi.tech/api/people/${numero}`;
+					return fetch(url)
+						.then(response => {
+							if (!response.ok) {
+								throw new Error(`No se ha podido obtener la información de ${url}`);
+							}
+							return response.json();
+						})
+						.then(data => data.result);
+				};
+			
+				const realizarSolicitud = (numero, resultados) => {
+					return obtenerPersona(numero)
+						.then(persona => {
+							resultados.push(persona);
+							if (numero < 10) {
+								return realizarSolicitud(numero + 1, resultados);
+							} else {
+								setStore({ personas: resultados });
+								console.log(resultados);
+								return resultados; // Necesitas devolver los resultados
+							}
+						})
+						.catch(error => {
+							console.error(`Error al obtener datos de https://www.swapi.tech/api/people/${numero}:`, error);
+							if (numero < 10) {
+								return realizarSolicitud(numero + 1, resultados);
+							} else {
+								setStore({ personas: resultados });
+								console.log(resultados);
+								return resultados; // Necesitas devolver los resultados
+							}
+						});
+				};
+			
+				return realizarSolicitud(1, []);
 			},
-
+			obtenerPlanetas: () => {
+				const obtenerPlaneta = (numero) => {
+					const url = `https://www.swapi.tech/api/planets/${numero}`;
+					return fetch(url)
+						.then(response => {
+							if (!response.ok) {
+								throw new Error(`No se ha podido obtener la información de ${url}`);
+							}
+							return response.json();
+						})
+						.then(data => data.result);
+				};
+			
+				const realizarSolicitud = (numero, resultados) => {
+					return obtenerPlaneta(numero)
+						.then(planeta => {
+							resultados.push(planeta);
+							if (numero < 10) {
+								return realizarSolicitud(numero + 1, resultados);
+							} else {
+								setStore({ planetas: resultados });
+								console.log(resultados);
+								return resultados; 
+							}
+						})
+						.catch(error => {
+							console.error(`Error al obtener datos de https://www.swapi.tech/api/planets/${numero}:`, error);
+							if (numero < 10) {
+								return realizarSolicitud(numero + 1, resultados);
+							} else {
+								setStore({ planetas: resultados });
+								console.log(resultados);
+								return resultados; 
+							}
+						});
+				};
+			
+				return realizarSolicitud(1, []);
+			}
 		}
 	};
 };
