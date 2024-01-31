@@ -1,15 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "../../styles/navbar.css";
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
+		<nav className="navbar navbar-light bg-black mb-3">
+			<div className="d-flex align-items-center">
+				<Link to="/">
+					<span className="navbar-brand mb-0 h1">
+						<img style={{ width: "70px", height: "50px" }} src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png" alt="Star Wars Logo" />
+					</span>
+				</Link>
+				<Link to="/planetas" className="btn-link">
+					<h6 style={{ color: "#ffd700" }}>Planetas</h6>
+				</Link>
+				<Link to="/personas" className="btn-link">
+					<h6 style={{ color: "#ffd700" }}>Personas</h6>
+				</Link>
+				<Link to="/vehiculos" className="btn-link">
+					<h6 style={{ color: "#ffd700" }}>Vehiculos</h6>
 				</Link>
 			</div>
 		</nav>
