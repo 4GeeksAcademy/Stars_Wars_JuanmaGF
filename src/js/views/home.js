@@ -8,7 +8,7 @@ export const Home = () => {
        <>
             <div className="container mt-5 " >
                 <div className="jumbotron bg-space" >
-                    <h1 className="display-4 text-center text-gold">Bienvenido a Star Wars</h1>
+                    <h1 className="display-4 text-center text-gold" style={{color: "#ffd700"}}>Bienvenido a Star Wars</h1>
                     <p className="lead text-center text-white">Explora el universo de Star Wars</p>
                     <hr className="my-4 bg-gold" />
                     <div className="d-flex justify-content-center">

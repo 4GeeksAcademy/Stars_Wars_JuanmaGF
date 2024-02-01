@@ -1,23 +1,31 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/card.css";
+import { Link } from "react-router-dom";
 
 export const Card = ({ person, planeta, vehiculo }) => {
     const { store, actions } = useContext(Context);
-    const handleAddToReadLater = () => {
-        
-        actions.learnMore(person || planeta || vehiculo);
+    const getEntityDetailsPath = (entityType, id) => {
+        return `/${entityType}/${id}`;
     };
+  
+   
+
     return (
         <div className="card" style={{ width: '18rem' }}>
             <div className="card-body">
-                {person && (
+            {person && (
                     <>
                         <h5 className="card-title">{person.properties.name}</h5>
                         <p className="card-text">Gender: {person.properties.gender}</p>
                         <p className="card-text">Hair color: {person.properties.hair_color}</p>
                         <p className="card-text">Eye color: {person.properties.eye_color}</p>
-                        <button type="button" class="btn btn-outline-primary" onClick={handleAddToReadLater}> Learn More!</button>
+                        <Link to={getEntityDetailsPath("personas", person.uid)}> 
+                            <button type="button" className="btn btn-outline-primary" >
+                                Learn More!
+                            </button>
+                        </Link>
+                        
                     </>
                 )}
 
@@ -26,7 +34,12 @@ export const Card = ({ person, planeta, vehiculo }) => {
                         <h5 className="card-title">{planeta.properties.name}</h5>
                         <p className="card-text">Population: {planeta.properties.population}</p>
                         <p className="card-text">Terrain: {planeta.properties.terrain}</p>
-                        <button type="button" class="btn btn-outline-primary" onClick={handleAddToReadLater}> Learn More!</button>
+                        <Link to={getEntityDetailsPath("planetas", planeta.uid)}>
+                            <button type="button" className="btn btn-outline-primary">
+                                Learn More!
+                            </button>
+                        </Link>
+                        
                     </>
                 )}
                 {vehiculo && (
@@ -34,11 +47,14 @@ export const Card = ({ person, planeta, vehiculo }) => {
                         <h5 className="card-title">{vehiculo.properties.name}</h5>
                         <p className="card-text">Manufactured: {vehiculo.properties.manufactured}</p>
                         <p className="card-text">Model: {vehiculo.properties.model}</p>
-                        <button type="button" class="btn btn-outline-primary" onClick={handleAddToReadLater}> Learn More!</button>
+                        <Link to={getEntityDetailsPath("vehiculos", vehiculo.uid)}>
+                            <button type="button" className="btn btn-outline-primary" >
+                                Learn More!
+                            </button>
+                        </Link>
+                        
                     </>
                 )}
-
-                
             </div>
         </div>
     );

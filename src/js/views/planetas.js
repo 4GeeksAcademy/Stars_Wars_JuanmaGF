@@ -19,7 +19,7 @@ export const Planetas = () => {
             <div>
                 
                 { loadingPlanetas  ? (
-                    <p>Cargando...</p>
+                    <p style={{color: "#ffd700"}}>Cargando...</p>
                 ) : (
                     <>
                         

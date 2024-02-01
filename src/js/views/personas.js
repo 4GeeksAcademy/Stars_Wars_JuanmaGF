@@ -17,7 +17,7 @@ export const Personas = () => {
             <div>
                 
                 {loading ? (
-                    <p>Cargando...</p>
+                    <p style={{color: "#ffd700"}}>Cargando...</p>
                 ) : (
                     <>
                         <h2 style={{ color: '#ffd700' }}>Personas</h2>

@@ -160,6 +160,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return realizarSolicitud(1, []);
 			},
 			
+			
+			
 	}
 }};
 
