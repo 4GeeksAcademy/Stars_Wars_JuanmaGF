@@ -8,24 +8,26 @@ export const Card = ({ person, planeta, vehiculo }) => {
     const getEntityDetailsPath = (entityType, id) => {
         return `/${entityType}/${id}`;
     };
-  
-   
+
+
 
     return (
         <div className="card" style={{ width: '18rem' }}>
             <div className="card-body">
-            {person && (
+                {person && (
                     <>
                         <h5 className="card-title">{person.properties.name}</h5>
                         <p className="card-text">Gender: {person.properties.gender}</p>
                         <p className="card-text">Hair color: {person.properties.hair_color}</p>
                         <p className="card-text">Eye color: {person.properties.eye_color}</p>
-                        <Link to={getEntityDetailsPath("personas", person.uid)}> 
+                        <Link to={getEntityDetailsPath("personas", person.uid)}>
                             <button type="button" className="btn btn-outline-primary" >
                                 Learn More!
                             </button>
                         </Link>
-                        
+                        <button type="button" className="btn btn-outline-primary "  style={{ marginLeft: '10px' }}>
+                        <i className="fas fa-heart"></i>
+                        </button>
                     </>
                 )}
 
@@ -39,7 +41,9 @@ export const Card = ({ person, planeta, vehiculo }) => {
                                 Learn More!
                             </button>
                         </Link>
-                        
+                        <button type="button" className="btn btn-outline-primary "  style={{ marginLeft: '10px' }}>
+                        <i className="fas fa-heart"></i>
+                        </button>
                     </>
                 )}
                 {vehiculo && (
@@ -52,7 +56,9 @@ export const Card = ({ person, planeta, vehiculo }) => {
                                 Learn More!
                             </button>
                         </Link>
-                        
+                        <button type="button" className="btn btn-outline-primary "  style={{ marginLeft: '10px' }}>
+                        <i className="fas fa-heart"></i>
+                        </button>
                     </>
                 )}
             </div>

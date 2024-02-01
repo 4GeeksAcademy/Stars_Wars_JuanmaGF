@@ -19,6 +19,15 @@ export const Navbar = () => {
 				<Link to="/vehiculos" className="btn-link">
 					<h6 style={{ color: "#ffd700" }}>Vehiculos</h6>
 				</Link>
+
+			</div>
+			<div className="dropdown ">
+				<button style={{ backgroundColor: "#ffd700" }} className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					Favoritos
+				</button>
+				<ul className="dropdown-menu">
+
+				</ul>
 			</div>
 		</nav>
 	);
