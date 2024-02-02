@@ -16,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			personas: [],
 			vehiculos: [],
 			planetas: [],
+			favorites: []
 			
 		},
 		actions: {
@@ -159,7 +160,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 				return realizarSolicitud(1, []);
 			},
-			
+			setFavorites: (element) =>{
+				console.log(element);
+				let store = getStore()
+				if(!store.favorites.includes(element.properties.name) ){
+					setStore({favorites: [...store.favorites, element.properties.name]})
+					console.log(store.favorites)
+				}
+			},
+			deleteFavorite: (element)  =>{
+				let store = getStore()
+				const filtrado = store.favorites.filter((e) => {
+					return(e != element)
+					
+				}) 
+				setStore({favorites: filtrado})
+			}
 			
 			
 	}
