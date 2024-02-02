@@ -43,7 +43,9 @@ export const Card = ({ person, planeta, vehiculo }) => {
                                 Learn More!
                             </button>
                         </Link>
-                        <button type="button" className="btn btn-outline-primary "  style={{ marginLeft: '10px' }}>
+                        <button type="button" className="btn btn-outline-primary "  style={{ marginLeft: '10px' }} onClick={() =>{
+                            actions.setFavorites(planeta)
+                        }}>
                         <i className="fas fa-heart"></i>
                         </button>
                     </>
@@ -58,7 +60,9 @@ export const Card = ({ person, planeta, vehiculo }) => {
                                 Learn More!
                             </button>
                         </Link>
-                        <button type="button" className="btn btn-outline-primary "  style={{ marginLeft: '10px', }}>
+                        <button type="button" className="btn btn-outline-primary "  style={{ marginLeft: '10px', }} onClick={() =>{
+                            actions.setFavorites(vehiculo)
+                        }}>
                         <i className="fas fa-heart"></i>
                         </button>
                     </>

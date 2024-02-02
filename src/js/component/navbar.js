@@ -24,21 +24,21 @@ export const Navbar = () => {
 				</Link>
 
 			</div>
-			<div className="dropdown ">
+			<div className="dropdown " style={{ marginRight: '50px',  }}>
 				<button style={{ backgroundColor: "#ffd700" }} className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 					Favoritos
 				</button>
-				<ul className="dropdown-menu">
+				<ul className="dropdown-menu" style={{backgroundColor: "black",color: "#ffd700"}}>
 					{
-						store.favorites.length == 0 ? <li><a className="dropdown-item">Empty</a></li> :
+						store.favorites.length == 0 ? <li><a className="dropdown-item" style={{color:"#ffd700"}}>Empty</a></li> :
 							store.favorites.map((e, index) => {
 								return (
-									<li className="favorito" key={index}>
+									<li className="favorito" key={index} style={{backgroundColor: "black", color:"#ffd700"}}>
 										<div className="col-10">
-											<a className="dropdown-item">{e}</a>
+											<a className="dropdown-item" style={{color:"#ffd700"}}>{e}</a>
 										</div>
 										<div className="col-2">
-											<span><i className="fa-solid fa-trash" onClick={() => {
+											<span><i className="fas fa-trash" onClick={() => {
 												actions.deleteFavorite(e)
 											}}></i></span>
 										</div>
