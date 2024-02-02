@@ -8,10 +8,10 @@ export const VehiculoDetails = () => {
     const [vehicle, setVehicle] = useState(null);
 
     useEffect(() => {
-        // Busca la persona con el ID correspondiente en el store
+        
         const foundVehicule = store.vehiculos.find(vehicle => vehicle.uid === id);
 
-        // Actualiza el estado local
+       
         setVehicle(foundVehicule);
     }, [store.vehiculos, id]);
 

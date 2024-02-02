@@ -65,7 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							} else {
 								setStore({ personas: resultados });
 								console.log(resultados);
-								return resultados; // Necesitas devolver los resultados
+								return resultados; 
 							}
 						})
 						.catch(error => {
@@ -75,7 +75,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							} else {
 								setStore({ personas: resultados });
 								console.log(resultados);
-								return resultados; // Necesitas devolver los resultados
+								return resultados; 
 							}
 						});
 				};

@@ -8,10 +8,10 @@ export const PersonDetails = () => {
     const [person, setPerson] = useState(null);
 
     useEffect(() => {
-        // Busca la persona con el ID correspondiente en el store
+        
         const foundPerson = store.personas.find(person => person.uid === id);
 
-        // Actualiza el estado local
+        
         setPerson(foundPerson);
     }, [store.personas, id]);
 
