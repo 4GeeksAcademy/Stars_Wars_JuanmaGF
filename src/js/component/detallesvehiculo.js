@@ -24,7 +24,7 @@ export const VehiculoDetails = () => {
         <div className="card row mb-3 w-100 vh-50 " style={{ maxWidth: "800" }}>
             <div className="row g-0">
                 <div className="col-md-4">
-                    <img src="https://picsum.photos/id/237/600/400" className="img-fluid rounded-start" alt="..." />
+                <img style={{height: "400", width: "600"}}src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png" className="img-fluid rounded-start" alt="..." />
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">
