@@ -6,13 +6,27 @@ export const PersonDetails = () => {
     const { id } = useParams();
     const { store } = useContext(Context);
     const [person, setPerson] = useState(null);
-
+    const [image, setImage] = useState(null);
     useEffect(() => {
         
         const foundPerson = store.personas.find(person => person.uid === id);
 
         
         setPerson(foundPerson);
+        const getImage = async () => {
+            try {
+                const response = await fetch(`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`);
+                if (response.ok) {
+                    setImage(`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`);
+                } else {
+                    console.error(`No se pudo obtener la imagen para el personaje con ID ${id}`);
+                }
+            } catch (error) {
+                console.error(`Error al obtener la imagen: ${error}`);
+            }
+        };
+    
+        getImage();
     }, [store.personas, id]);
 
     if (!person) {
@@ -24,7 +38,7 @@ export const PersonDetails = () => {
             <div className="card row mb-3 w-100 vh-50 " style={{ maxWidth: "800" }}>
                 <div className="row g-0">
                     <div className="col-md-4">
-                    <img style={{height: "400", width: "600"}}src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png" className="img-fluid rounded-start" alt="..." />
+                    {image && <img style={{ height: "400", width: "600" }} src={image} className="img-fluid rounded-start" alt="Character" />}
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
